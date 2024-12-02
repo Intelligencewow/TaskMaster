@@ -2,6 +2,7 @@ package com.example.taskmaster;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -9,6 +10,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.example.taskmaster.model.Task;
+import com.example.taskmaster.retrofit.ApiService;
+import com.example.taskmaster.retrofit.RetrofitClient;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class TaskActivity extends AppCompatActivity {
 

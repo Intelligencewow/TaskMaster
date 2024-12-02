@@ -6,14 +6,14 @@ import java.sql.Date;
 public class Task {
     private String title;
     private String description;
-    private java.sql.Date creationDate;
-    private java.sql.Date conclusionDate;
+    private String creationDate;
+    private String conclusionDate;
     private String status;
     private Long categoryId;
     private Long userId;
     private boolean active;
 
-    public Task(String title, String description, java.sql.Date creationDate, java.sql.Date conclusionDate, String status, Long categoryId, Long userId, boolean active) {
+    public Task(String title, String description, String creationDate, String conclusionDate, String status, Long categoryId, Long userId, boolean active) {
         this.title = title;
         this.description = description;
         this.creationDate = creationDate;
@@ -40,19 +40,19 @@ public class Task {
         this.description = description;
     }
 
-    public java.sql.Date getCreationDate() {
+    public String getCreationDate() {
         return creationDate;
     }
 
-    public void setCreationDate(java.sql.Date creationDate) {
+    public void setCreationDate(String creationDate) {
         this.creationDate = creationDate;
     }
 
-    public java.sql.Date getConclusionDate() {
+    public String getConclusionDate() {
         return conclusionDate;
     }
 
-    public void setConclusionDate(Date conclusionDate) {
+    public void setConclusionDate(String conclusionDate) {
         this.conclusionDate = conclusionDate;
     }
 
