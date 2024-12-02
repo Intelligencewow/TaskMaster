@@ -95,6 +95,7 @@ public class TarefasActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Task>> call, Response<List<Task>> response) {
                 if (response.isSuccessful()) {
+                    taskList.clear();
                     taskList.addAll(response.body());
                     taskAdapter.setTaskList(taskList);
                     Log.i("MainActivity", "PASSEI AQUI: ");
