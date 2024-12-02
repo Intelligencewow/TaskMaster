@@ -60,7 +60,7 @@ public class TarefasActivity extends AppCompatActivity {
             }, new ActivityResultCallback<Task>() {
                 @Override
                 public void onActivityResult(Task task) {
-
+                    getAllTasks();
                     Log.i("TAG", "onActivityResult: ");
                 }
             });
@@ -79,7 +79,7 @@ public class TarefasActivity extends AppCompatActivity {
             return insets;
         });
         TextView tvNovasTarefas = findViewById(R.id.tvNovaTarefa);
-
+        setRecyclerView();
         getAllTasks();
 
         tvNovasTarefas.setOnClickListener(v -> {
@@ -95,11 +95,9 @@ public class TarefasActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Task>> call, Response<List<Task>> response) {
                 if (response.isSuccessful()) {
-
                     taskList.addAll(response.body());
+                    taskAdapter.setTaskList(taskList);
                     Log.i("MainActivity", "PASSEI AQUI: ");
-
-                    setRecyclerView();
                     Log.i("MainActivity", "OnResposta: " + response);
                 } else {
                     Log.e("Alisson", "Erro na resposta: Código HTTP " + response.code());
@@ -131,13 +129,8 @@ public class TarefasActivity extends AppCompatActivity {
 
 
     public void setRecyclerView() {
-        Log.i("MainActivity", "PASSEI AQUI: ");
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        Log.i("MainActivity", "setRecyclerView: " + taskList.size());
-        for (int i = 0; i < taskList.size(); i++) {
-            Log.i("MainActivity", "task: " + taskList.get(i).getTitle());
-        }
         taskAdapter = new TaskAdapter(this, taskList);
         recyclerView.setAdapter(taskAdapter);
     }

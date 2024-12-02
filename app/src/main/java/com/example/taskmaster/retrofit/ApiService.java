@@ -23,4 +23,7 @@ public interface ApiService {
 
     @GET("tasks/all")
     Call<List<Task>> getAllTasks();
+
+    @POST("tasks/create")
+    Call<String> createTask(@Body Task task);
 }

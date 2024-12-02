@@ -1,6 +1,7 @@
 package com.example.taskmaster.model;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 
 public class Task {
@@ -13,15 +14,15 @@ public class Task {
     private Long userId;
     private boolean active;
 
-    public Task(String title, String description, String creationDate, String conclusionDate, String status, Long categoryId, Long userId, boolean active) {
+    public Task(String title, String description) {
         this.title = title;
         this.description = description;
-        this.creationDate = creationDate;
-        this.conclusionDate = conclusionDate;
-        this.status = status;
-        this.categoryId = categoryId;
-        this.userId = userId;
-        this.active = active;
+        this.creationDate = LocalDate.now().toString();
+        this.conclusionDate = "2040-04-20";
+        this.status = "pending";
+        this.categoryId = 1L;
+        this.userId = 1L;
+        this.active = true;
     }
 
     public String getTitle() {

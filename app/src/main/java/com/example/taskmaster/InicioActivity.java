@@ -10,6 +10,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.taskmaster.retrofit.ApiService;
+import com.example.taskmaster.retrofit.RetrofitClient;
+
 public class InicioActivity extends AppCompatActivity {
 
     @Override
@@ -23,7 +26,10 @@ public class InicioActivity extends AppCompatActivity {
             return insets;
         });
 
+
+
         TextView tvTarefas = findViewById(R.id.textViewTarefas);
+
         tvTarefas.setOnClickListener(v -> {
             Intent intent = new Intent(this, TarefasActivity.class);
             startActivity(intent);
